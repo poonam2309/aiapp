@@ -1,1 +1,1 @@
-# aiapp
+# MLapp for Jupyter app
