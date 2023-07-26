@@ -88,7 +88,7 @@ jobs:
 
       - name: New Deployment
         run: |
-          gcloud run deploy jupyapp --image ${{ env.GCR_HOSTNAME }}/${{ env.PROJECT_ID }}/${{env.GCR_REGISTRY}}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} --platform managed --region GCP_ZONE
+          gcloud run deploy jupyapp --image ${{ env.GCR_HOSTNAME }}/${{ env.PROJECT_ID }}/${{env.GCR_REGISTRY}}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} --platform managed --region ${{ env.GCP_ZONE }} 
 
 
      # - name: Update Deployment
