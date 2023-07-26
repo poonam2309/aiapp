@@ -51,7 +51,7 @@ jobs:
         
       - name: Log in to Docker Registry
         run: |
-         gcloud auth activate-service-account --key-file=sa.json
+         gcloud auth activate-service-account --key-file=ai-runner/sa.json
          gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://us.gcr.io  
 
 
