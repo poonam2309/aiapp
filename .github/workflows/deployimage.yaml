@@ -48,12 +48,6 @@ jobs:
       - name: 'Use gcloud CLI'
         run: 'gcloud info'  
 
-      - name: Set up Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0.5.0
-        with:
-          project_id: ${{ env.PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true  
         
       - name: Log in to Docker Registry
         run: |
