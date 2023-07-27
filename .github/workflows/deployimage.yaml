@@ -84,14 +84,20 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v1'
 
       - name: 'Use gcloud CLI'
-        run: 'gcloud info'  
-
-      - name: New Deployment
+        run: 'gcloud info' 
+      
+      - name: New Deployment into app engine
         run: |
-          gcloud run deploy jupyapp --image ${{ env.GCR_HOSTNAME }}/${{ env.PROJECT_ID }}/${{env.GCR_REGISTRY}}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} --platform managed --region ${{ env.GCP_ZONE }} 
+         gcloud app deploy jupyapp --image-url=${{ env.GCR_HOSTNAME }}/${{ env.PROJECT_ID }}/${{env.GCR_REGISTRY}}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} --region us-east1 
 
 
-     # - name: Update Deployment
+      #- name: New Deployment into cloud run
+      #  run: |
+      #   gcloud run deploy jupyapp --image=${{ env.GCR_HOSTNAME }}/${{ env.PROJECT_ID }}/${{env.GCR_REGISTRY}}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} --platform managed --region us-east1 
+
+     
+     
+     # - name: Update Deployment into cloud run
      #   if: steps.check_deployment.outputs.deployment_exists == 'true'
      #  run: |
      #   kubectl set image deployment/${{ env.IMAGE_NAME }} ${{ env.IMAGE_NAME }}=${{ env.GCR_HOSTNAME }}/${{ env.PROJECT_ID }}/${{env.GCR_REGISTRY}}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} -n app
