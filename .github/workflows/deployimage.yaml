@@ -82,7 +82,7 @@ jobs:
       - name: 'Use gcloud CLI'
         run: 'gcloud info' 
       
-      - name: New Deployment into app engine
+      - name: New Deployment as app engine instane
         run: |
          gcloud app deploy --image-url=${{ env.GCR_HOSTNAME }}/${{ env.PROJECT_ID }}/${{env.GCR_REGISTRY}}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
 
